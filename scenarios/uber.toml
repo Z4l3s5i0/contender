@@ -6,3 +6,4 @@ bytecode = "0x6080604052348015600f57600080fd5b50610c1f8061001f6000396000f3fe6080
 [spam.tx]
 to = "{ContractUber}"
 signature = "checkDistance()"
+gas_limit = 30000000

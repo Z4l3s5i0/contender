@@ -26,8 +26,10 @@ RUN apt-get update && \
     apt-get install -y libsqlite3-0 fontconfig libfontconfig1 libssl3 clang && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy built binary and test fixtures from builder
+# Copy built binary, test fixtures, scenarios, and campaigns from builder
 COPY --from=builder /app/contender-dist /root/.cargo
+COPY --from=builder /app/scenarios /scenarios
+COPY --from=builder /app/campaigns /campaigns
 
 # Set permissions
 RUN mkdir -p /root/.contender

@@ -2,61 +2,63 @@ name = "uber-workload"
 description = "Uber workload from Diablo (ramp-up profile)"
 
 [setup]
-scenarios = ["scenario:uber.toml"]
+scenarios = ["/scenarios/uber.toml"]
 
 [spam]
 mode = "tps"
+rate = 1
+duration = 600
 
 # Stage 0: 0-40s @ 81.5 TPS
 [[spam.stage]]
 name = "ramp-1"
-duration_secs = 40
+duration = 40
 rate = 82
   [[spam.stage.mix]]
-  scenario = "scenario:uber.toml"
+  scenario = "/scenarios/uber.toml"
   share_pct = 100.0
 
 # Stage 1: 40-75s @ 84.5 TPS
 [[spam.stage]]
 name = "ramp-2"
-duration_secs = 35
+duration = 35
 rate = 85
   [[spam.stage.mix]]
-  scenario = "scenario:uber.toml"
+  scenario = "/scenarios/uber.toml"
   share_pct = 100.0
 
 # Stage 2: 75-90s @ 89 TPS
 [[spam.stage]]
 name = "peak-1"
-duration_secs = 15
+duration = 15
 rate = 89
   [[spam.stage.mix]]
-  scenario = "scenario:uber.toml"
+  scenario = "/scenarios/uber.toml"
   share_pct = 100.0
 
 # Stage 3: 90-120s @ 90.5 TPS
 [[spam.stage]]
 name = "peak-2"
-duration_secs = 30
+duration = 30
 rate = 91
   [[spam.stage.mix]]
-  scenario = "scenario:uber.toml"
+  scenario = "/scenarios/uber.toml"
   share_pct = 100.0
 
 # Stage 4: 120-121s @ 85.5 TPS
 [[spam.stage]]
 name = "cool-down"
-duration_secs = 1
+duration = 1
 rate = 86
   [[spam.stage.mix]]
-  scenario = "scenario:uber.toml"
+  scenario = "/scenarios/uber.toml"
   share_pct = 100.0
 
 # Stage 5: 121s+ @ 0.5 TPS
 [[spam.stage]]
 name = "end"
-duration_secs = 60
+duration = 60
 rate = 1
   [[spam.stage.mix]]
-  scenario = "scenario:uber.toml"
+  scenario = "/scenarios/uber.toml"
   share_pct = 100.0

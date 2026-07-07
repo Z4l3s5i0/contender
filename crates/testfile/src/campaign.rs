@@ -23,6 +23,7 @@ pub struct CampaignMixEntry {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct CampaignStage {
     pub name: String,
+    #[serde(alias = "duration_secs")]
     pub duration: Option<u64>,
     pub rate: Option<u64>,
     #[serde(default)]

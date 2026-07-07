@@ -288,7 +288,7 @@ pub async fn fund_accounts(
         for tx in txs_chunk {
             // Use a timeout for funding transactions to prevent indefinite hanging
             // This prevents stalls when transactions get stuck in mempool or dropped
-            let timeout_duration = Duration::from_secs(24);
+            let timeout_duration = Duration::from_secs(300);
             let tx_hash = *tx.tx_hash();
 
             let watch_result = tokio::time::timeout(timeout_duration, async {
@@ -340,7 +340,7 @@ pub async fn fund_account(
         &mut tx_req,
         tx_type,
         gas_price,
-        gas_price / 10,
+        gas_price / 2,
         21000,
         chain_id,
         blob_gas_price,
