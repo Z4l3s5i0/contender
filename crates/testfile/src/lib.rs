@@ -743,6 +743,37 @@ duration_secs = 600
             .any(|m| m.scenario.contains("erc20_transfer")));
     }
 
+    #[test]
+    fn parses_campaign_with_regional_rpc_urls() {
+        let toml = r#"
+name = "regional"
+
+[spam]
+mode = "tps"
+rate = 10
+duration = 60
+
+[[spam.stage]]
+name = "peak"
+  [[spam.stage.mix]]
+  scenario = "scenario:uber.toml"
+  share_pct = 50.0
+  rpc_url = "http://region-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenario:uber.toml"
+  share_pct = 50.0
+  rpc_url = "http://region-2:8545"
+"#;
+
+        let cfg = CampaignConfig::from_toml_str(toml).expect("campaign parses");
+        let stages = cfg.resolve().expect("campaign resolves");
+        assert_eq!(stages.len(), 1);
+        let stage = &stages[0];
+        assert_eq!(stage.mix.len(), 2);
+        assert_eq!(stage.mix[0].rpc_url, Some("http://region-1:8545".to_string()));
+        assert_eq!(stage.mix[1].rpc_url, Some("http://region-2:8545".to_string()));
+    }
+
     mod scenario_label {
         use crate::TestConfig;
         use alloy::primitives::Address;

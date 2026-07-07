@@ -463,6 +463,12 @@ async fn prepare_scenario(
     let scenario_seed = bump_seed(ctx.stage_seed, &mix_idx.to_string());
     let mut args = ctx.args.to_owned();
     args.eth_json_rpc_args.seed = Some(scenario_seed.clone());
+    if let Some(rpc_url) = &mix.rpc_url {
+        debug!("mix {mix_idx} RPC URL override: {rpc_url}");
+        args.eth_json_rpc_args.rpc_url = Url::parse(rpc_url).map_err(|e| {
+            CliError::Args(format!("Invalid RPC URL override for mix {mix_idx}: {e}"))
+        })?;
+    }
     debug!("mix {mix_idx} seed: {}", scenario_seed);
 
     // Check if this is a builtin scenario to determine skip_setup behavior:

@@ -16,6 +16,7 @@ pub enum CampaignMode {
 pub struct CampaignMixEntry {
     pub scenario: String,
     pub share_pct: f64,
+    pub rpc_url: Option<String>,
 }
 
 /// A single spam stage within a campaign.
@@ -95,6 +96,7 @@ pub struct ResolvedMixEntry {
     pub scenario: String,
     pub share_pct: f64,
     pub rate: u64,
+    pub rpc_url: Option<String>,
 }
 
 impl CampaignConfig {
@@ -246,6 +248,7 @@ impl CampaignConfig {
                     scenario: mix.scenario.clone(),
                     share_pct: mix.share_pct,
                     rate: scenario_rate,
+                    rpc_url: mix.rpc_url.clone(),
                 });
             }
 
