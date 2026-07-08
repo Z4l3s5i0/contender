@@ -56,19 +56,29 @@ pub struct CampaignConfig {
     pub name: String,
     #[serde(default)]
     pub description: Option<String>,
+    #[serde(default)]
+    pub setup: Option<CampaignSetup>,
+    #[serde(flatten)]
     pub spam: CampaignSpam,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, Default)]
+pub struct CampaignSetup {
+    #[serde(alias = "scenarios")]
+    pub scenarios: Vec<String>,
 }
 
 impl CampaignConfig {
     /// Returns all scenario labels mentioned in spam declarations.
     pub fn setup_scenarios(&self) -> Vec<String> {
         let mut all_scenarios = vec![];
-        if let Some(mix) = &self.spam.mix {
-            let mut v = mix.iter().map(|m| m.scenario.clone()).collect::<Vec<_>>();
-            all_scenarios.append(&mut v);
+
+        if let Some(setup) = &self.setup {
+            all_scenarios.extend(setup.scenarios.clone());
         }
 
-        for stage in &self.spam.stage {
+        let stages = self.spam.normalized_stages().unwrap_or_default();
+        for stage in stages {
             let mut v = stage
                 .mix
                 .iter()
