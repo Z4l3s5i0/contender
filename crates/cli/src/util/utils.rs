@@ -340,7 +340,7 @@ pub async fn fund_account(
         &mut tx_req,
         tx_type,
         gas_price,
-        gas_price / 2,
+        gas_price / 10,
         21000,
         chain_id,
         blob_gas_price,

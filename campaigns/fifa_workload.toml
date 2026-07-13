@@ -1,0 +1,745 @@
+name = "fifa-workload"
+description = "Fifa workload with complex staged loads across 10 RPCs"
+
+[setup]
+scenarios = ["scenarios/exp/counter.toml"]
+
+[spam]
+mode = "tps"
+seed = 42
+
+# Stage 1: 0-11s (11s) @ 340.65 TPS per node (3407 TPS total)
+[[spam.stage]]
+name = "stage-1"
+duration = 11
+rate = 3407
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 2: 11-27s (16s) @ 348.55 TPS per node (3486 TPS total)
+[[spam.stage]]
+name = "stage-2"
+duration = 16
+rate = 3486
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 3: 27-40s (13s) @ 278.75 TPS per node (2788 TPS total)
+[[spam.stage]]
+name = "stage-3"
+duration = 13
+rate = 2788
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 4: 40-56s (16s) @ 337.45 TPS per node (3375 TPS total)
+[[spam.stage]]
+name = "stage-4"
+duration = 16
+rate = 3375
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 5: 56-61s (5s) @ 141.65 TPS per node (1417 TPS total)
+[[spam.stage]]
+name = "stage-5"
+duration = 5
+rate = 1417
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 6: 61-74s (13s) @ 381.75 TPS per node (3818 TPS total)
+[[spam.stage]]
+name = "stage-6"
+duration = 13
+rate = 3818
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 7: 74-87s (13s) @ 348.25 TPS per node (3483 TPS total)
+[[spam.stage]]
+name = "stage-7"
+duration = 13
+rate = 3483
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 8: 87-104s (17s) @ 341.45 TPS per node (3415 TPS total)
+[[spam.stage]]
+name = "stage-8"
+duration = 17
+rate = 3415
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 9: 104-112s (8s) @ 409.75 TPS per node (4098 TPS total)
+[[spam.stage]]
+name = "stage-9"
+duration = 8
+rate = 4098
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 10: 112-121s (9s) @ 335.75 TPS per node (3358 TPS total)
+[[spam.stage]]
+name = "stage-10"
+duration = 9
+rate = 3358
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 11: 121-129s (8s) @ 337.85 TPS per node (3379 TPS total)
+[[spam.stage]]
+name = "stage-11"
+duration = 8
+rate = 3379
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 12: 129-147s (18s) @ 448.75 TPS per node (4488 TPS total)
+[[spam.stage]]
+name = "stage-12"
+duration = 18
+rate = 4488
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 13: 147-159s (12s) @ 337.35 TPS per node (3374 TPS total)
+[[spam.stage]]
+name = "stage-13"
+duration = 12
+rate = 3374
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 14: 159-176s (17s) @ 388.25 TPS per node (3883 TPS total)
+[[spam.stage]]
+name = "stage-14"
+duration = 17
+rate = 3883
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 15: 176-177s (1s) @ 530.55 TPS per node (5306 TPS total)
+[[spam.stage]]
+name = "stage-15"
+duration = 1
+rate = 5306
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# End Stage: 177s+ (1s) @ 0.5 TPS per node (5 TPS total)
+[[spam.stage]]
+name = "end"
+duration = 1
+rate = 5
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/counter.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"

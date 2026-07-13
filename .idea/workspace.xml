@@ -29,12 +29,15 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a35f365-3847-43c5-a748-3d3d9c75369c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/campaigns/composite.toml" beforeDir="false" afterPath="$PROJECT_DIR$/campaigns/composite.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/campaigns/staged-example.toml" beforeDir="false" afterPath="$PROJECT_DIR$/campaigns/staged-example.toml" afterDir="false" />
+    <list default="true" id="ed063277-e63b-4fb2-acef-f65048b1a963" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scenarios/exp/counter.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scenarios/exp/dota.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/campaigns/uber_workload.toml" beforeDir="false" afterPath="$PROJECT_DIR$/campaigns/uber_workload.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crates/cli/src/server/static/openrpc.json" beforeDir="false" afterPath="$PROJECT_DIR$/crates/cli/src/server/static/openrpc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crates/testfile/src/campaign.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/testfile/src/campaign.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crates/cli/src/util/utils.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/cli/src/util/utils.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/campaigns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/campaigns.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenarios/uber.toml" beforeDir="false" afterPath="$PROJECT_DIR$/scenarios/exp/uber.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +45,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="226" />
+    <option name="cachedIndexableFilesCount" value="231" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
@@ -50,16 +53,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MacroExpansionManager">
-    <option name="directoryName" value="z2VMHkW4" />
+    <option name="directoryName" value="u8B91UyO" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="3G20GfXPKEmBPL633iIomk8uGhX" />
+  <component name="ProjectId" id="3GFo70fiLixX1t8UeJrburCJnMU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -75,9 +79,8 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;custom&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MA/contender/campaigns&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MA/contender/scenarios/exp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -85,14 +88,17 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
     &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;junie.application.models&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MA\contender\campaigns" />
+      <recent name="D:\MA\contender\scenarios\exp" />
+      <recent name="D:\MA\contender\scenarios" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MA\contender\scenarios\exp" />
     </key>
   </component>
   <component name="RunManager" selected="Cargo.Test contender">
@@ -137,20 +143,15 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0a35f365-3847-43c5-a748-3d3d9c75369c" name="Changes" comment="" />
-      <created>1783154262096</created>
+      <changelist id="ed063277-e63b-4fb2-acef-f65048b1a963" name="Changes" comment="" />
+      <created>1783576506926</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1783154262096</updated>
-      <workItem from="1783154263218" duration="2551000" />
-      <workItem from="1783156841049" duration="182000" />
-      <workItem from="1783157303443" duration="7876000" />
-      <workItem from="1783264533999" duration="623000" />
-      <workItem from="1783353051010" duration="1204000" />
-      <workItem from="1783424555751" duration="5363000" />
-      <workItem from="1783435856609" duration="5178000" />
-      <workItem from="1783444458045" duration="8025000" />
-      <workItem from="1783493927356" duration="9871000" />
+      <updated>1783576506926</updated>
+      <workItem from="1783576507958" duration="2042000" />
+      <workItem from="1783623031281" duration="901000" />
+      <workItem from="1783665004926" duration="9627000" />
+      <workItem from="1783757671792" duration="4811000" />
     </task>
     <servers />
   </component>

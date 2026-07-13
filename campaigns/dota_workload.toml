@@ -1,285 +1,285 @@
-name = "uber-workload"
-description = "Uber workload with staged loads across 10 RPCs"
+name = "dota-workload"
+description = "Dota workload with staged loads across 10 RPCs"
 
 [setup]
-scenarios = ["scenarios/exp/uber.toml"]
+scenarios = ["scenarios/exp/dota.toml"]
 
 [spam]
 mode = "tps"
 seed = 42
 
-# Stage 1: 0-40s @ 81.5 TPS per node (815 TPS total)
+# Stage 1: 0-50s (50s duration) @ ~1330.1 TPS per node (13301 total)
 [[spam.stage]]
-name = "ramp-1"
-duration = 40
-rate = 815
+name = "stage-1"
+duration = 50
+rate = 13301
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://wasm-el-node-0-1:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://wasm-el-node-1-1:8546"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://wasm-el-node-2-1:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://rpc-4:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://rpc-5:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://rpc-6:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://rpc-7:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://rpc-8:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://rpc-9:8545"
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
-  share_pct = 10.0
-  rpc_url = "http://rpc-10:8545"
-
-# Stage 2: 40-75s @ 84.5 TPS per node (845 TPS total)
-[[spam.stage]]
-name = "ramp-2"
-duration = 35
-rate = 845
-  [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-1:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-2:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-3:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-4:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-5:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-6:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-7:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-8:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-9:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-10:8545"
 
-# Stage 3: 75-90s @ 89.0 TPS per node (890 TPS total)
+# Stage 2: 50-120s (70s duration) @ ~1331.9 TPS per node (13319 total)
 [[spam.stage]]
-name = "peak-1"
-duration = 15
-rate = 890
+name = "stage-2"
+duration = 70
+rate = 13319
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-1:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-2:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-3:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-4:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-5:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-6:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-7:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-8:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-9:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-10:8545"
 
-# Stage 4: 90-120s @ 90.5 TPS per node (905 TPS total)
+# Stage 3: 120-200s (80s duration) @ ~1333.9 TPS per node (13339 total)
 [[spam.stage]]
-name = "peak-2"
-duration = 30
-rate = 905
+name = "stage-3"
+duration = 80
+rate = 13339
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-1:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-2:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-3:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-4:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-5:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-6:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-7:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-8:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-9:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-10:8545"
 
-# Stage 5: 120-121s @ 85.5 TPS per node (855 TPS total)
+# Stage 4: 200-275s (75s duration) @ ~1336.4 TPS per node (13364 total)
 [[spam.stage]]
-name = "cool-down"
+name = "stage-4"
+duration = 75
+rate = 13364
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-1:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-2:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-3:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-4:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-5:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-6:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-7:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-8:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-9:8545"
+  [[spam.stage.mix]]
+  scenario = "scenarios/exp/dota.toml"
+  share_pct = 10.0
+  rpc_url = "http://rpc-10:8545"
+
+# Stage 5: 275-276s (1s duration) @ ~1343.0 TPS per node (13430 total)
+[[spam.stage]]
+name = "stage-5"
 duration = 1
-rate = 855
+rate = 13430
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-1:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-2:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-3:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-4:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-5:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-6:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-7:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-8:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-9:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-10:8545"
 
-# Stage 6: 121s+ @ 0.5 TPS per node (5 TPS total)
+# Stage 6: 276s final drop to ~0.5 TPS per node (5 total)
 [[spam.stage]]
 name = "end"
-duration = 60
+duration = 1
 rate = 5
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-1:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-2:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-3:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-4:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-5:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-6:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-7:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-8:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-9:8545"
   [[spam.stage.mix]]
-  scenario = "scenarios/exp/uber.toml"
+  scenario = "scenarios/exp/dota.toml"
   share_pct = 10.0
   rpc_url = "http://rpc-10:8545"

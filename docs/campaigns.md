@@ -39,6 +39,7 @@ duration_secs = 600
 - `rate`: rate per mode (TPS if `mode="tps"`, TPB if `mode="tpb"`). Set once at `[spam]` or per stage.
 - `duration` at `[spam]` is a **default per-stage** duration, not a total campaign time. Each stage runs for its own duration (seconds if `tps`, blocks if `tpb`), then the next stage starts.
 - `share_pct`: scenario weight inside a stage; shares are normalized and rounded, and the last entry absorbs rounding drift to preserve the target rate.
+- `rpc_url` (optional): override the RPC URL for a specific scenario in the mix. This allows spamming to different RPC addresses simultaneously.
 - `[setup].scenarios`: run once, in order, before spamming. Uses the standard `setup` logic for each referenced scenario file.
 
 ### Stage basics
@@ -66,14 +67,31 @@ seed = 42
 [[spam.mix]]
 scenario  = "scenario:simple.toml"
 share_pct = 95.0
+rpc_url   = "http://rpc-address-1:8545"
 [[spam.mix]]
 scenario  = "scenario:stress.toml"
-share_pct = 4.8
-[[spam.mix]]
-scenario  = "scenario:reverts.toml"
-share_pct = 0.2
+share_pct = 5.0
+rpc_url   = "http://rpc-address-2:8545"
 ```
 This is equivalent to writing a single explicit `[[spam.stage]]` named `steady` with the same rate/duration and mix.
+
+### Multi-RPC and same scenario spamming
+Campaigns support spamming to different RPC addresses simultaneously using the `rpc_url` field in mix entries.
+You can also spam the same scenario to different RPC addresses (or even the same RPC with different parameters) by including it multiple times in the mix:
+
+```toml
+[[spam.mix]]
+scenario  = "scenario:simple.toml"
+share_pct = 50.0
+rpc_url   = "http://rpc-address-1:8545"
+
+[[spam.mix]]
+scenario  = "scenario:simple.toml"
+share_pct = 50.0
+rpc_url   = "http://rpc-address-2:8545"
+```
+
+Contender will spin up two independent spammers for the same scenario, each targeting its respective RPC URL.
 
 ### Multi-stage example
 See `campaigns/staged-example.toml` for a two-stage campaign that warms up at a lower TPS, then ramps to a steady-state mix.

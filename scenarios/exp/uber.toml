@@ -1,0 +1,4 @@
+[[spam]]
+[spam.tx]
+to = "0x9999999999999999999999999999999999999999"
+signature = "checkDistance()"
